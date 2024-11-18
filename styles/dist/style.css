@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "main-font";
+  src: url("assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "main-font";
+  src: url("assets/fonts/static/PlusJakartaSans-Bold.ttf");
+  font-weight: 700;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "main-font";
+}/*# sourceMappingURL=style.css.map */

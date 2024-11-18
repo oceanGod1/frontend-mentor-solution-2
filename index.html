@@ -1,61 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="an efficient mortgage repayment calculator">
+  <meta name="author" content="Kingsley Jack Festus">
+  <link rel="stylesheet" href="styles/dist/style.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
   <title>Frontend Mentor | Mortgage repayment calculator</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
+  <main>
+    <header class="main-header">
+      <h1>Mortgage Calculator</h1>
+      <a href="">Clear All</a>
+    </header>
 
-  Mortgage Calculator
-  Clear All
+    <form class="input-field__card">
+      <label for="input-field__mortgage-amount">Mortgage Amount</label>
+      <fieldset>
+        <input type="text" id="input-field__mortgage-amount">
+      </fieldset>
 
-  Mortgage Amount
+      <label for="input-field__mortgage-term">Mortgage Term</label>
+      <fieldset>
+        <input type="text" id="input-field__mortgage-term">
+      </fieldset>
 
-  Mortgage Term
+      <label for="input-field__interest-rate">Interest Rate</label>
+      <fieldset>
+        <input type="text" id="input-field__interest-rate">
+      </fieldset>
 
-  Interest Rate
+      <label>Mortgage Type</label>
+      <div>
+        <fieldset>
+          <input type="radio" name="mortgage-type" id="input-field__mortgage-repayment" value="input-field__mortgage-repayment">
+          <label for="input-field__mortgage-repayment">Repayment</label>
+        </fieldset>
+        <fieldset>
+          <input type="radio" name="mortgage-type" id="input-field__mortgage-interest" value="input-field__mortgage-interest">
+          <label for="input-field__mortgage-interest">Interest Only</label>
+        </fieldset>
+      </div>
 
-  Mortgage Type
-  Repayment
-  Interest Only
-
-  Calculate Repayments
-
-  <!-- Empty results start -->
-
-  Results shown here
-
-  Complete the form and click “calculate repayments” to see what 
-  your monthly repayments would be.
-
-  <!-- Empty results end -->
+      <button>Calculate Repayments</button>
+    </form>
+  </main>
 
   <!-- Completed results start -->
-
-  Your results
-
-  Your results are shown below based on the information you provided. 
-  To adjust the results, edit the form and click “calculate repayments” again.
-
-  Your monthly repayments
-
-  Total you'll repay over the term
-
+  <aside>
+    <section class="result__main-card">
+      <header>
+        <h2>Your results</h2>
+        <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+      </header>
+      <div>
+        <h3>Your monthly repayments</h3>
+        <h4>--</h4>
+        <h3>Total you'll repay over the term</h3>
+      <h2>--</h2>
+      </div>
+    </section>
+  </aside>
   <!-- Completed results end -->
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </footer>
 </body>
+
 </html>
