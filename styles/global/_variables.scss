@@ -1,0 +1,81 @@
+$sizes: (
+  xs: 0.5rem,
+  sm: 1rem,
+  md: 1.5rem,
+  lg: 2rem,
+  xl: 2.5rem,
+);
+
+$color: (
+  primary-1: #122f3f,
+  primary-2: #4e6e7e,
+  primary-3: #6b94a8,
+  primary-4: #9abed5,
+  primary-5: #e3f3fd,
+  secondary: #d7da2f,
+  error: #d73328,
+  neutral-1: white,
+);
+  
+$rounded: (
+  sm: 0.3rem,
+  md: map-get($sizes, xs),
+  lg: map-get($sizes, lg),
+  xl: map-get($sizes, xl),
+  xl-2: 5rem,
+);
+
+$gap: (
+  gap-1: map-get($sizes, xs),
+  gap-2: map-get($sizes, md),
+);
+
+@mixin primary-heading($color) {
+  color: $color;
+  font-weight: bold;
+  font-size: map-get($sizes, md);
+  margin-block: map-get($sizes, sm);
+  @content;
+};
+
+@mixin grid-gap($gap-val){
+  display: grid;
+  gap: map-get($gap, $gap-val);
+  @content
+};
+
+.grid-gap-padding{
+  @include grid-gap(gap-2);
+  padding: map-get($sizes, md);
+}
+
+
+@mixin tab-size () {
+  @media(min-width: 48rem){
+    @content;
+  }
+}
+
+@mixin desktop-size () {
+  @media(min-width: 62rem){
+    @content;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// <!-- <footer class="attribution">
+// Challenge by 
+// <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+// Coded by 
+// <a href="#">Your Name Here</a>.
+// </footer> -->

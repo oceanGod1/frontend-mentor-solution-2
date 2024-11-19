@@ -1,0 +1,15 @@
+@use "fonts" as *;
+@use "variables" as *;
+
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  box-sizing: border-box;
+  background-color: transparent;
+  font-size: map-get($sizes, sm);
+  font-family: 'Plus Jakarta Sans';
+  color: map-get($color, primary-2);
+}

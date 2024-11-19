@@ -1,17 +1,161 @@
-@font-face{
-  font-family: "main-font";
-  src: url('assets/fonts/PlusJakartaSans-VariableFont_wght.ttf')
+@use "global" as *;
+
+main{
+  min-width: 24rem;
+  
+  @include tab-size {
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    background-color: map-get($color, primary-5);
+  }
+  
+  .parent-card{
+    display: grid;
+    background-color: map-get($color, neutral-1);
+    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+    
+    @include tab-size {
+      grid-template-columns: repeat(2, minmax(24rem, 31rem));
+    }
+
+    @include desktop-size {
+      overflow: hidden;
+      border-radius: map-get($rounded, lg);
+    }
+  }
 }
 
-@font-face{
-  font-family: "main-font";
-  src: url('assets/fonts/static/PlusJakartaSans-Bold.ttf');
-  font-weight: 700;
+.input-card{
+  @extend .grid-gap-padding;
+
+  h1{
+    @include primary-heading(map-get($color, primary-1));
+    margin-bottom: map-get($sizes, xs);
+  }
+
+  form{
+    @include grid-gap(gap-2);
+
+    div{
+      @include grid-gap(gap-1);
+    }
+  }
+
+  fieldset{
+    display: flex;
+    overflow: hidden;
+    place-items: center;
+    height: map-get($sizes, xl);
+    border-radius: map-get($rounded, sm);
+    border: 1px solid map-get($color, primary-3);
+
+    p{
+      padding: map-get($sizes, sm);
+      background-color: map-get($color, primary-5)
+    }
+
+    input{
+      flex: 1;
+      font-weight: 700;
+      color: map-get($color, primary-1);
+      padding-left: map-get($sizes, sm);
+    }
+    
+    [type="radio"]{
+      flex-grow: 0;
+      margin: map-get($sizes, sm);
+    }
+    
+    .radio-label{
+      font-weight: bold;
+      color: map-get($color, primary-1);
+    }
+  }
+
+  button{
+    font-weight: bold;
+    height: map-get($sizes, xl);
+    color: map-get($color, primary-1);
+    border-radius: map-get($rounded, xl);
+    background-color: map-get($color, secondary);
+    
+    img{
+      height: 1.2rem;
+      vertical-align: bottom;
+      padding-right: map-get($sizes, sm);
+    }
+  }
+
+  @include desktop-size {
+    padding: map-get($sizes, xl);
+    
+    .main-header{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+
+      h1{
+        margin: 0;
+      }
+    }
+
+
+  }
 }
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "main-font";
+
+
+
+.result-card{
+  display: grid;
+  background-color: map-get($color, primary-1);
+  
+  h2{
+    @include primary-heading(map-get($color, neutral-1));
+  }
+
+  p{
+    color: map-get($color, primary-4);
+  }
+
+  .result__empty-card{
+    @extend .grid-gap-padding;
+    place-items: center;
+    align-self: center;
+  
+    h2,p{
+      text-align: center;
+    }
+  }
+
+  .result__preview-card{
+    @extend .grid-gap-padding;
+
+    .result{
+      @include grid-gap(gap-1);
+
+      display: grid;
+      padding: map-get($sizes, sm);
+      border-radius: map-get($rounded, md);
+      border-top: 0.3rem solid map-get($color, secondary);
+      background-color: darken(map-get($color, primary-1), 5%);
+    }
+
+    h4{
+      font-size: map-get($sizes, xl);
+      font-weight: bold;
+      color: map-get($color, secondary);
+    }
+
+    hr{
+      margin-block: map-get($sizes, xs);
+      border: 1px solid map-get($color, primary-4);
+    }
+  }
+
+  @include desktop-size {
+    border-end-start-radius: map-get($rounded, xl-2);
+  }
+
 }

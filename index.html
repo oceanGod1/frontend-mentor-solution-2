@@ -13,64 +13,83 @@
 
 <body>
   <main>
-    <header class="main-header">
-      <h1>Mortgage Calculator</h1>
-      <a href="">Clear All</a>
-    </header>
+    <section class="parent-card">
 
-    <form class="input-field__card">
-      <label for="input-field__mortgage-amount">Mortgage Amount</label>
-      <fieldset>
-        <input type="text" id="input-field__mortgage-amount">
-      </fieldset>
+      <section class="input-card">
+        <header class="main-header">
+          <h1>Mortgage Calculator</h1>
+          <a href="index.html">Clear All</a>
+        </header>
+      
+        <form class="input-field__card">
+          <div class="input-field__first-section">
+            <label for="input-field__mortgage-amount">Mortgage Amount</label>
+            <fieldset>
+              <p>&pound</p>
+              <input type="number" id="input-field__mortgage-amount">
+            </fieldset>
+          </div>
 
-      <label for="input-field__mortgage-term">Mortgage Term</label>
-      <fieldset>
-        <input type="text" id="input-field__mortgage-term">
-      </fieldset>
+          <div class="input-field__second-section">
+            <label for="input-field__mortgage-term">Mortgage Term</label>
+            <fieldset>
+              <input type="text" id="input-field__mortgage-term">
+              <p>years</p>
+            </fieldset>
+          </div>
 
-      <label for="input-field__interest-rate">Interest Rate</label>
-      <fieldset>
-        <input type="text" id="input-field__interest-rate">
-      </fieldset>
+          <div class="input-field__third-section">
+            <label for="input-field__interest-rate">Interest Rate</label>
+            <fieldset>
+              <input type="text" id="input-field__interest-rate">
+              <p>%</p>
+            </fieldset>
+          </div>
 
-      <label>Mortgage Type</label>
-      <div>
-        <fieldset>
-          <input type="radio" name="mortgage-type" id="input-field__mortgage-repayment" value="input-field__mortgage-repayment">
-          <label for="input-field__mortgage-repayment">Repayment</label>
-        </fieldset>
-        <fieldset>
-          <input type="radio" name="mortgage-type" id="input-field__mortgage-interest" value="input-field__mortgage-interest">
-          <label for="input-field__mortgage-interest">Interest Only</label>
-        </fieldset>
-      </div>
+          <div class="input-field__fourth-section">
+            <label>Mortgage Type</label>
+            <fieldset>
+              <input type="radio" name="mortgage-type" id="input-field__mortgage-repayment" value="input-field__mortgage-repayment">
+              <label class="radio-label" for="input-field__mortgage-repayment">Repayment</label>
+            </fieldset>
+            <fieldset>
+              <input type="radio" name="mortgage-type" id="input-field__mortgage-interest" value="input-field__mortgage-interest">
+              <label class="radio-label" for="input-field__mortgage-interest">Interest Only</label>
+            </fieldset>
+          </div>
 
-      <button>Calculate Repayments</button>
-    </form>
-  </main>
+          <button><img src="assets/images/icon-calculator.svg" alt="calculator-icon">Calculate Repayments</button>
+        </form>
+      </section>
 
-  <!-- Completed results start -->
-  <aside>
-    <section class="result__main-card">
-      <header>
-        <h2>Your results</h2>
-        <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
-      </header>
-      <div>
-        <h3>Your monthly repayments</h3>
-        <h4>--</h4>
-        <h3>Total you'll repay over the term</h3>
-      <h2>--</h2>
-      </div>
+      <section class="result-card">
+        <div class="result__empty-card">
+          <img src="assets/images/illustration-empty.svg" alt="calculator-icon">
+          <header>
+            <h2>Results shown here</h2>
+            <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+          </header>
+        </div>
+<!-- 
+        <div class="result__preview-card">
+          <header>
+            <h2>Your results</h2>
+            <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
+          </header>
+          <div class="result">
+            <p>Your monthly repayments</p>
+            <h4>&pound1,797.74</h4>
+            <hr>
+            <p>Total you'll repay over the term</p>
+            <h2>&pound539,322.94</h2>
+          </div>
+        </div>
+-->
+ 
+      </section>
+
     </section>
-  </aside>
-  <!-- Completed results end -->
-
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-    Coded by <a href="#">Your Name Here</a>.
-  </footer>
+  </main>
 </body>
 
 </html>

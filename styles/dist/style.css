@@ -1,15 +1,166 @@
 @font-face {
-  font-family: "main-font";
-  src: url("assets/fonts/PlusJakartaSans-VariableFont_wght.ttf");
+  font-family: "Plus Jakarta Sans";
+  src: url("../../assets/fonts/static/PlusJakartaSans-Medium.ttf");
 }
 @font-face {
-  font-family: "main-font";
-  src: url("assets/fonts/static/PlusJakartaSans-Bold.ttf");
-  font-weight: 700;
+  font-family: "Plus Jakarta Sans";
+  src: url("../../assets/fonts/static/PlusJakartaSans-Bold.ttf");
+  font-weight: bold;
 }
+.grid-gap-padding, .input-card, .result-card .result__empty-card, .result-card .result__preview-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
 * {
   margin: 0;
   padding: 0;
+  border: none;
+  outline: none;
+  font-weight: 500;
   box-sizing: border-box;
-  font-family: "main-font";
+  background-color: transparent;
+  font-size: 1rem;
+  font-family: "Plus Jakarta Sans";
+  color: #4e6e7e;
+}
+
+main {
+  min-width: 24rem;
+}
+@media (min-width: 48rem) {
+  main {
+    display: grid;
+    height: 100vh;
+    place-content: center;
+    background-color: #e3f3fd;
+  }
+}
+main .parent-card {
+  display: grid;
+  background-color: white;
+  grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+}
+@media (min-width: 48rem) {
+  main .parent-card {
+    grid-template-columns: repeat(2, minmax(24rem, 31rem));
+  }
+}
+@media (min-width: 62rem) {
+  main .parent-card {
+    overflow: hidden;
+    border-radius: 2rem;
+  }
+}
+
+.input-card h1 {
+  color: #122f3f;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-block: 1rem;
+  margin-bottom: 0.5rem;
+}
+.input-card form {
+  display: grid;
+  gap: 1.5rem;
+}
+.input-card form div {
+  display: grid;
+  gap: 0.5rem;
+}
+.input-card fieldset {
+  display: flex;
+  overflow: hidden;
+  place-items: center;
+  height: 2.5rem;
+  border-radius: 0.3rem;
+  border: 1px solid #6b94a8;
+}
+.input-card fieldset p {
+  padding: 1rem;
+  background-color: #e3f3fd;
+}
+.input-card fieldset input {
+  flex: 1;
+  font-weight: 700;
+  color: #122f3f;
+  padding-left: 1rem;
+}
+.input-card fieldset [type=radio] {
+  flex-grow: 0;
+  margin: 1rem;
+}
+.input-card fieldset .radio-label {
+  font-weight: bold;
+  color: #122f3f;
+}
+.input-card button {
+  font-weight: bold;
+  height: 2.5rem;
+  color: #122f3f;
+  border-radius: 2.5rem;
+  background-color: #d7da2f;
+}
+.input-card button img {
+  height: 1.2rem;
+  vertical-align: bottom;
+  padding-right: 1rem;
+}
+@media (min-width: 62rem) {
+  .input-card {
+    padding: 2.5rem;
+  }
+  .input-card .main-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .input-card .main-header h1 {
+    margin: 0;
+  }
+}
+
+.result-card {
+  display: grid;
+  background-color: #122f3f;
+}
+.result-card h2 {
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-block: 1rem;
+}
+.result-card p {
+  color: #9abed5;
+}
+.result-card .result__empty-card {
+  place-items: center;
+  align-self: center;
+}
+.result-card .result__empty-card h2, .result-card .result__empty-card p {
+  text-align: center;
+}
+.result-card .result__preview-card .result {
+  display: grid;
+  gap: 0.5rem;
+  display: grid;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-top: 0.3rem solid #d7da2f;
+  background-color: #0c202b;
+}
+.result-card .result__preview-card h4 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #d7da2f;
+}
+.result-card .result__preview-card hr {
+  margin-block: 0.5rem;
+  border: 1px solid #9abed5;
+}
+@media (min-width: 62rem) {
+  .result-card {
+    border-end-start-radius: 5rem;
+  }
 }/*# sourceMappingURL=style.css.map */
