@@ -13,46 +13,47 @@
 
 <body>
   <main>
-    <section class="parent-card">
+    <section class="card-holder">
 
       <section class="input-card">
         <header class="main-header">
           <h1>Mortgage Calculator</h1>
-          <a href="index.html">Clear All</a>
+          <a class="clear-all" href="index.html">Clear All</a>
         </header>
       
         <form class="input-field__card">
-          <div class="input-field__first-section">
+
+          <div class="input-field__container input-field__first-section">
             <label for="input-field__mortgage-amount">Mortgage Amount</label>
             <fieldset>
-              <p>&pound</p>
-              <input type="number" id="input-field__mortgage-amount">
+              <label for="input-field__mortgage-amount" class="input-tag">&pound</label>
+              <input type="number" id="input-field__mortgage-amount" class="input-field mortgage-amount">
             </fieldset>
           </div>
 
-          <div class="input-field__second-section">
+          <div class="input-field__container input-field__second-section">
             <label for="input-field__mortgage-term">Mortgage Term</label>
             <fieldset>
-              <input type="text" id="input-field__mortgage-term">
-              <p>years</p>
+              <input type="text" id="input-field__mortgage-term" class="input-field">
+              <label for="input-field__mortgage-term" class="input-tag">years</label>
             </fieldset>
           </div>
 
-          <div class="input-field__third-section">
+          <div class="input-field__container input-field__third-section">
             <label for="input-field__interest-rate">Interest Rate</label>
             <fieldset>
-              <input type="text" id="input-field__interest-rate">
-              <p>%</p>
+              <input type="text" id="input-field__interest-rate" class="input-field">
+              <label for="input-field__interest-rate" class="input-tag">%</label>
             </fieldset>
           </div>
 
-          <div class="input-field__fourth-section">
+          <div class="input-field__container input-field__fourth-section">
             <label>Mortgage Type</label>
-            <fieldset>
+            <fieldset class="repayment-radio__container">
               <input type="radio" name="mortgage-type" id="input-field__mortgage-repayment" value="input-field__mortgage-repayment">
               <label class="radio-label" for="input-field__mortgage-repayment">Repayment</label>
             </fieldset>
-            <fieldset>
+            <fieldset class="interest-radio__container">
               <input type="radio" name="mortgage-type" id="input-field__mortgage-interest" value="input-field__mortgage-interest">
               <label class="radio-label" for="input-field__mortgage-interest">Interest Only</label>
             </fieldset>
@@ -76,7 +77,7 @@
             <h2>Your results</h2>
             <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
           </header>
-          <div class="result">
+          <div class="result view-result">
             <p>Your monthly repayments</p>
             <h4>&pound1,797.74</h4>
             <hr>
@@ -90,6 +91,7 @@
 
     </section>
   </main>
+  <script src="scripts/app.js"></script>
 </body>
 
 </html>

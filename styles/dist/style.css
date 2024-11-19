@@ -22,7 +22,7 @@
   box-sizing: border-box;
   background-color: transparent;
   font-size: 1rem;
-  font-family: "Plus Jakarta Sans";
+  font-family: calibri;
   color: #4e6e7e;
 }
 
@@ -37,18 +37,18 @@ main {
     background-color: #e3f3fd;
   }
 }
-main .parent-card {
+main .card-holder {
   display: grid;
   background-color: white;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
 }
 @media (min-width: 48rem) {
-  main .parent-card {
+  main .card-holder {
     grid-template-columns: repeat(2, minmax(24rem, 31rem));
   }
 }
 @media (min-width: 62rem) {
-  main .parent-card {
+  main .card-holder {
     overflow: hidden;
     border-radius: 2rem;
   }
@@ -61,13 +61,38 @@ main .parent-card {
   margin-block: 1rem;
   margin-bottom: 0.5rem;
 }
+.input-card .clear-all:hover {
+  color: #122f3f;
+}
 .input-card form {
   display: grid;
   gap: 1.5rem;
 }
-.input-card form div {
+@media (min-width: 62rem) {
+  .input-card form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .input-card form button {
+    grid-column: span 3;
+  }
+}
+.input-card form .input-field__container {
   display: grid;
   gap: 0.5rem;
+}
+@media (min-width: 62rem) {
+  .input-card form .input-field__container {
+    grid-column: span 4;
+  }
+  .input-card form .input-field__container:nth-of-type(2), .input-card form .input-field__container:nth-of-type(3) {
+    grid-column: span 2;
+  }
+  .input-card form .input-field__container:nth-of-type(2) fieldset, .input-card form .input-field__container:nth-of-type(3) fieldset {
+    min-width: 1rem;
+  }
+  .input-card form .input-field__container:nth-of-type(2) fieldset input, .input-card form .input-field__container:nth-of-type(3) fieldset input {
+    min-width: 1rem;
+  }
 }
 .input-card fieldset {
   display: flex;
@@ -77,23 +102,61 @@ main .parent-card {
   border-radius: 0.3rem;
   border: 1px solid #6b94a8;
 }
-.input-card fieldset p {
+.input-card fieldset:hover {
+  border-color: #122f3f;
+}
+.input-card fieldset .input-tag {
+  cursor: pointer;
   padding: 1rem;
   background-color: #e3f3fd;
 }
+.input-card fieldset .input-tag--on-focus {
+  font-weight: bold;
+  color: #122f3f;
+  background-color: #d7da2f;
+}
 .input-card fieldset input {
   flex: 1;
+  height: 100%;
   font-weight: 700;
   color: #122f3f;
   padding-left: 1rem;
 }
+.input-card fieldset input:hover {
+  cursor: pointer;
+}
 .input-card fieldset [type=radio] {
+  height: 1rem;
   flex-grow: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border-radius: 50%;
+  transform: scale(0.5);
+  box-sizing: content-box;
   margin: 1rem;
+  background-color: white;
+  border: 0.25rem solid white;
+  outline: 0.25rem solid #122f3f;
+}
+.input-card fieldset [type=radio]:checked {
+  background-color: #d7da2f;
+  outline: 0.25rem solid #d7da2f;
 }
 .input-card fieldset .radio-label {
   font-weight: bold;
   color: #122f3f;
+}
+.input-card .input-field__fourth-section fieldset:hover {
+  cursor: pointer;
+  border-color: #e7e982;
+}
+.input-card .input-field__fourth-section .radio--on-focus, .input-card .input-field__fourth-section .radio--on-focus:hover {
+  border-color: #d7da2f;
+  background-color: #f9f9e0;
+}
+.input-card .fieldset--on-focus, .input-card .fieldset--on-focus:hover {
+  border: 1px solid #d7da2f;
 }
 .input-card button {
   font-weight: bold;
@@ -106,6 +169,10 @@ main .parent-card {
   height: 1.2rem;
   vertical-align: bottom;
   padding-right: 1rem;
+}
+.input-card button:hover {
+  cursor: pointer;
+  background-color: #e7e982;
 }
 @media (min-width: 62rem) {
   .input-card {
@@ -135,6 +202,7 @@ main .parent-card {
   color: #9abed5;
 }
 .result-card .result__empty-card {
+  gap: 2rem;
   place-items: center;
   align-self: center;
 }
@@ -151,13 +219,14 @@ main .parent-card {
   background-color: #0c202b;
 }
 .result-card .result__preview-card h4 {
-  font-size: 2.5rem;
+  font-size: calc(2.5rem + 1vw);
   font-weight: bold;
   color: #d7da2f;
 }
 .result-card .result__preview-card hr {
-  margin-block: 0.5rem;
-  border: 1px solid #9abed5;
+  align-self: center;
+  margin-block: 1rem;
+  border: 1px solid #4e6e7e;
 }
 @media (min-width: 62rem) {
   .result-card {

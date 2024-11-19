@@ -16,6 +16,12 @@ $color: (
   error: #d73328,
   neutral-1: white,
 );
+
+$blended-color: (
+  dark-primay-1: darken(map-get($color, primary-1), 5%),
+  light-secondary-1: mix(white, map-get($color, secondary), 40),
+  light-secondary-2: mix(white, map-get($color, secondary), 85)
+);
   
 $rounded: (
   sm: 0.3rem,

@@ -10,7 +10,7 @@ main{
     background-color: map-get($color, primary-5);
   }
   
-  .parent-card{
+  .card-holder{
     display: grid;
     background-color: map-get($color, neutral-1);
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
@@ -34,11 +34,40 @@ main{
     margin-bottom: map-get($sizes, xs);
   }
 
+  .clear-all:hover{
+    color: map-get($color, primary-1)
+  }
+
   form{
     @include grid-gap(gap-2);
 
-    div{
+    @include desktop-size {
+      grid-template-columns: repeat(4, 1fr);
+
+      button{
+        grid-column: span 3;
+      }
+    }
+
+    .input-field__container{
       @include grid-gap(gap-1);
+
+      @include desktop-size {
+        grid-column: span 4;
+
+        &:nth-of-type(2),
+        &:nth-of-type(3){
+          grid-column: span 2;
+
+          fieldset{
+            min-width: 1rem;
+
+            input{
+              min-width: 1rem;
+            }
+          }
+        }
+      }
     }
   }
 
@@ -49,22 +78,52 @@ main{
     height: map-get($sizes, xl);
     border-radius: map-get($rounded, sm);
     border: 1px solid map-get($color, primary-3);
+    
 
-    p{
+    &:hover{
+      border-color: map-get($color, primary-1);
+    }
+
+    .input-tag{
+      cursor: pointer;
       padding: map-get($sizes, sm);
       background-color: map-get($color, primary-5)
     }
 
+    .input-tag--on-focus{ // Dynamic (JavaScript) Class
+      font-weight: bold;
+      color: map-get($color, primary-1);
+      background-color: map-get($color, secondary);
+    }
+
     input{
       flex: 1;
+      height: 100%;
       font-weight: 700;
       color: map-get($color, primary-1);
       padding-left: map-get($sizes, sm);
+
+      &:hover{
+        cursor: pointer;
+      }
     }
     
     [type="radio"]{
+      height: 1rem;
       flex-grow: 0;
+      appearance: none;
+      border-radius: 50%;
+      transform: scale(0.5);
+      box-sizing: content-box;
       margin: map-get($sizes, sm);
+      background-color: map-get($color, neutral-1);
+      border: 0.25rem solid map-get($color, neutral-1);
+      outline: 0.25rem solid map-get($color, primary-1);
+    }
+    
+    [type="radio"]:checked{
+      background-color: map-get($color, secondary);
+      outline: 0.25rem solid map-get($color, secondary);
     }
     
     .radio-label{
@@ -72,6 +131,23 @@ main{
       color: map-get($color, primary-1);
     }
   }
+
+  .input-field__fourth-section{
+    fieldset:hover{
+      cursor: pointer;
+      border-color: map-get($blended-color, light-secondary-1);
+    }
+    .radio--on-focus, .radio--on-focus:hover{ // Dynamic (JavaScript) Class
+      border-color: map-get($color, secondary);
+      background-color: map-get($blended-color, light-secondary-2);
+    }
+  }
+
+  .fieldset--on-focus, .fieldset--on-focus:hover{ // Dynamic (JavaScript) Class
+    border: 1px solid map-get($color, secondary);
+  }
+
+
 
   button{
     font-weight: bold;
@@ -84,6 +160,11 @@ main{
       height: 1.2rem;
       vertical-align: bottom;
       padding-right: map-get($sizes, sm);
+    }
+
+    &:hover{
+      cursor: pointer;
+      background-color: map-get($blended-color, light-secondary-1);
     }
   }
 
@@ -99,8 +180,6 @@ main{
         margin: 0;
       }
     }
-
-
   }
 }
 
@@ -121,6 +200,7 @@ main{
 
   .result__empty-card{
     @extend .grid-gap-padding;
+    gap: 2rem;
     place-items: center;
     align-self: center;
   
@@ -139,23 +219,39 @@ main{
       padding: map-get($sizes, sm);
       border-radius: map-get($rounded, md);
       border-top: 0.3rem solid map-get($color, secondary);
-      background-color: darken(map-get($color, primary-1), 5%);
+      background-color: map-get($blended-color, dark-primay-1);
     }
 
     h4{
-      font-size: map-get($sizes, xl);
+      font-size: calc(map-get($sizes, xl) + 1vw);
       font-weight: bold;
       color: map-get($color, secondary);
     }
 
     hr{
-      margin-block: map-get($sizes, xs);
-      border: 1px solid map-get($color, primary-4);
+      align-self: center;
+      margin-block: 1rem;
+      border: 1px solid map-get($color, primary-2);
     }
   }
 
   @include desktop-size {
     border-end-start-radius: map-get($rounded, xl-2);
+    // grid-template-rows: auto 1fr; // when showing result
+    // padding-inline: 1.1rem; // when showing result
+    // .result.view-result{ // when showing result
+    //   padding: 2rem;
+    //   h2{
+    //     margin: 0;
+    //   }
+    // }
   }
-
 }
+
+
+
+
+// JS UI
+
+
+

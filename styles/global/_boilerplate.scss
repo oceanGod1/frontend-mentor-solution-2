@@ -10,6 +10,7 @@
   box-sizing: border-box;
   background-color: transparent;
   font-size: map-get($sizes, sm);
-  font-family: 'Plus Jakarta Sans';
+  // font-family: 'Plus Jakarta Sans', calibri;
+  font-family: calibri;
   color: map-get($color, primary-2);
 }
