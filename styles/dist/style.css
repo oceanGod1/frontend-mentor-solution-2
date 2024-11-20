@@ -115,6 +115,11 @@ main .card-holder {
   color: #122f3f;
   background-color: #d7da2f;
 }
+.input-card fieldset .input-tag--throw-error {
+  font-weight: bold;
+  color: white;
+  background-color: #d73328;
+}
 .input-card fieldset input {
   flex: 1;
   height: 100%;
@@ -147,16 +152,25 @@ main .card-holder {
   font-weight: bold;
   color: #122f3f;
 }
-.input-card .input-field__fourth-section fieldset:hover {
+.input-card .mortgage-amount-fieldset {
+  flex-direction: row-reverse;
+}
+.input-card .error-message {
+  color: #d73328;
+}
+.input-card .input-field__fourth-section .radio--on-focus, .input-card .input-field__fourth-section fieldset:hover {
   cursor: pointer;
   border-color: #e7e982;
 }
-.input-card .input-field__fourth-section .radio--on-focus, .input-card .input-field__fourth-section .radio--on-focus:hover {
+.input-card .input-field__fourth-section .radio--on-checked, .input-card .input-field__fourth-section .radio--on-checked:hover {
   border-color: #d7da2f;
   background-color: #f9f9e0;
 }
 .input-card .fieldset--on-focus, .input-card .fieldset--on-focus:hover {
-  border: 1px solid #d7da2f;
+  border-color: #d7da2f;
+}
+.input-card .fieldset--on-error {
+  border-color: #d73328;
 }
 .input-card button {
   font-weight: bold;

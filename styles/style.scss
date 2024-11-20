@@ -78,7 +78,6 @@ main{
     height: map-get($sizes, xl);
     border-radius: map-get($rounded, sm);
     border: 2px solid map-get($color, primary-3);
-    
 
     &:hover{
       border-color: map-get($color, primary-1);
@@ -87,13 +86,19 @@ main{
     .input-tag{
       cursor: pointer;
       padding: map-get($sizes, sm);
-      background-color: map-get($color, primary-5)
+      background-color: map-get($color, primary-5);
     }
 
     .input-tag--on-focus{ // Dynamic (JavaScript) Class
       font-weight: bold;
       color: map-get($color, primary-1);
       background-color: map-get($color, secondary);
+    }
+
+    .input-tag--throw-error{ // Dynamic (JavaScript) Class
+      font-weight: bold;
+      color: map-get($color, neutral-1);
+      background-color: map-get($color, error);
     }
 
     input{
@@ -132,22 +137,32 @@ main{
     }
   }
 
+  .mortgage-amount-fieldset{
+    flex-direction: row-reverse;
+  }
+
+  .error-message{
+    color: map-get($color, error)
+  }
+
   .input-field__fourth-section{
-    fieldset:hover{
+    .radio--on-focus, fieldset:hover{
       cursor: pointer;
       border-color: map-get($blended-color, light-secondary-1);
     }
-    .radio--on-focus, .radio--on-focus:hover{ // Dynamic (JavaScript) Class
+    .radio--on-checked, .radio--on-checked:hover{ // Dynamic (JavaScript) Class
       border-color: map-get($color, secondary);
       background-color: map-get($blended-color, light-secondary-2);
     }
   }
 
   .fieldset--on-focus, .fieldset--on-focus:hover{ // Dynamic (JavaScript) Class
-    border: 1px solid map-get($color, secondary);
+    border-color: map-get($color, secondary);
   }
 
-
+  .fieldset--on-error { // Dynamic (JavaScript) Class
+    border-color: map-get($color, error);
+  }
 
   button{
     font-weight: bold;
@@ -255,7 +270,6 @@ main{
 
 
 
-// JS UI
 
 
 

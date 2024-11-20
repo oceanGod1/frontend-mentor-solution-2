@@ -21,28 +21,28 @@
           <a class="clear-all" href="index.html">Clear All</a>
         </header>
       
-        <form class="input-field__card">
+        <form>
 
-          <div class="input-field__container input-field__first-section">
+          <div class="input-field__container">
             <label for="input-field__mortgage-amount">Mortgage Amount</label>
-            <fieldset>
+            <fieldset class="mortgage-amount-fieldset">
+              <input type="text" id="input-field__mortgage-amount" name="mortgageAmount" class="input-field">
               <label for="input-field__mortgage-amount" class="input-tag">&pound</label>
-              <input type="text" id="input-field__mortgage-amount" class="input-field mortgage-amount">
             </fieldset>
           </div>
 
-          <div class="input-field__container input-field__second-section">
+          <div class="input-field__container">
             <label for="input-field__mortgage-term">Mortgage Term</label>
             <fieldset>
-              <input type="text" id="input-field__mortgage-term" class="input-field" maxlength="5">
+              <input type="text" id="input-field__mortgage-term" maxlength="5" name="mortgageTerm" class="input-field">
               <label for="input-field__mortgage-term" class="input-tag">years</label>
             </fieldset>
           </div>
 
-          <div class="input-field__container input-field__third-section">
+          <div class="input-field__container">
             <label for="input-field__interest-rate">Interest Rate</label>
             <fieldset>
-              <input type="text" id="input-field__interest-rate" class="input-field">
+              <input type="text" id="input-field__interest-rate" name="mortgageRate" class="input-field">
               <label for="input-field__interest-rate" class="input-tag">%</label>
             </fieldset>
           </div>
@@ -62,6 +62,10 @@
           <button><img src="assets/images/icon-calculator.svg" alt="calculator-icon">Calculate Repayments</button>
         </form>
       </section>
+
+
+
+
 
       <section class="result-card">
         <div class="result__empty-card">
