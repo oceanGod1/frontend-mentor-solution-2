@@ -20,6 +20,27 @@ inputField.forEach((input) => {
       input.nextElementSibling.classList.remove('input-tag--on-focus');
     }
   })
+
+  input.addEventListener('input', () => {
+    let value = input.value.replace(/[^0-9.]/g, '');
+
+    if (/^0$/.test(input.value)) {
+      value = value.replace(/0/,"");
+    };
+
+    if (/^\.$/.test(input.value)) {
+      value = value.replace(/\./, '0.')
+    };
+
+    if (value.split(".").length > 2) {
+      value = value.replace(/\.+$/,"");
+    };
+    // input.value = value;
+    let [integerPart, decimalPart] = value.split(".");
+
+    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    input.value = decimalPart !== undefined ? `${integerPart}.${decimalPart}` : integerPart;
+  })
 })
 
 radioButton.forEach((radio) => {

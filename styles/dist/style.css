@@ -100,7 +100,7 @@ main .card-holder {
   place-items: center;
   height: 2.5rem;
   border-radius: 0.3rem;
-  border: 1px solid #6b94a8;
+  border: 2px solid #6b94a8;
 }
 .input-card fieldset:hover {
   border-color: #122f3f;
@@ -173,6 +173,9 @@ main .card-holder {
 .input-card button:hover {
   cursor: pointer;
   background-color: #e7e982;
+}
+.input-card button:active {
+  background-color: #d7da2f;
 }
 @media (min-width: 62rem) {
   .input-card {

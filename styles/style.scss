@@ -77,7 +77,7 @@ main{
     place-items: center;
     height: map-get($sizes, xl);
     border-radius: map-get($rounded, sm);
-    border: 1px solid map-get($color, primary-3);
+    border: 2px solid map-get($color, primary-3);
     
 
     &:hover{
@@ -165,6 +165,10 @@ main{
     &:hover{
       cursor: pointer;
       background-color: map-get($blended-color, light-secondary-1);
+    }
+
+    &:active{
+      background-color: map-get($color, secondary);
     }
   }
 
