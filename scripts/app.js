@@ -84,41 +84,29 @@ radioButton.forEach((radio) => {
   toggleFocus(radio, 'blur', 'remove', 'radio--on-focus');
   checkRadio.radioEvent(radio, 'keydown', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio');
   checkRadio.radioEvent(radio, 'click', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio');
-
-  function a (className, sibling){
-    if (radio.classList.contains(className)) {
-      radio.parentElement.classList.add('radio--on-checked');
-      radio.parentElement[sibling].classList.remove('radio--on-checked');
-    }
-  }
-
-  radio.parentElement.addEventListener('click', () => {
-    radio.checked = true;
-    a('repayment-radio', 'nextElementSibling')
-    a('interest-only-radio', 'previousElementSibling')
-  })
 })
 
-
-
-
 // submit button
+
 pageForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
   let filledInputFields = 0;
   const userEntry = {};
+  const errorNotifier = (elName, action) => {
+    elName.parentElement.classList[action]('fieldset--on-error');
+    elName.nextElementSibling.classList[action]('input-tag--throw-error');
+    elName.parentElement.nextElementSibling.classList[action]('show-error-message');
+  }
+
+
   inputField.forEach((input) => {
     userEntry[input.name] = Number(input.value.replace(/,/g, ""));
     if (input.value === '') {
-      input.parentElement.classList.add('fieldset--on-error');
-      input.nextElementSibling.classList.add('input-tag--throw-error');
-      input.parentElement.nextElementSibling.classList.add('show-error-message');
+      errorNotifier(input, 'add');
     } else {
       filledInputFields ++
-      input.parentElement.classList.remove('fieldset--on-error');
-      input.nextElementSibling.classList.remove('input-tag--throw-error');
-      input.parentElement.nextElementSibling.classList.remove('show-error-message');
+      errorNotifier(input, 'remove');
     }
   });
 
