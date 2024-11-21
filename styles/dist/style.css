@@ -156,7 +156,11 @@ main .card-holder {
   flex-direction: row-reverse;
 }
 .input-card .error-message {
+  display: none;
   color: #d73328;
+}
+.input-card .show-error-message {
+  display: block;
 }
 .input-card .input-field__fourth-section .radio--on-focus, .input-card .input-field__fourth-section fieldset:hover {
   cursor: pointer;
@@ -209,7 +213,7 @@ main .card-holder {
   display: grid;
   background-color: #122f3f;
 }
-.result-card h2 {
+.result-card h2, .result-card .result__preview-card .total-repayment {
   color: white;
   font-weight: bold;
   font-size: 1.5rem;
@@ -219,12 +223,14 @@ main .card-holder {
   color: #9abed5;
 }
 .result-card .result__empty-card {
-  gap: 2rem;
   place-items: center;
   align-self: center;
 }
-.result-card .result__empty-card h2, .result-card .result__empty-card p {
+.result-card .result__empty-card h2, .result-card .result__empty-card .result__preview-card .total-repayment, .result-card .result__preview-card .result__empty-card .total-repayment, .result-card .result__empty-card p {
   text-align: center;
+}
+.result-card .result__preview-card {
+  display: none;
 }
 .result-card .result__preview-card .result {
   display: grid;
@@ -235,10 +241,16 @@ main .card-holder {
   border-top: 0.3rem solid #d7da2f;
   background-color: #0c202b;
 }
-.result-card .result__preview-card h4 {
-  font-size: calc(2.5rem + 1vw);
+.result-card .result__preview-card .monthly-payment {
   font-weight: bold;
+  flex-grow: 0;
+  width: 100%;
   color: #d7da2f;
+  font-size: calc(2.5rem + 1vw);
+}
+.result-card .result__preview-card .total-repayment {
+  flex-grow: 0;
+  width: 100%;
 }
 .result-card .result__preview-card hr {
   align-self: center;
@@ -249,4 +261,10 @@ main .card-holder {
   .result-card {
     border-end-start-radius: 5rem;
   }
+}
+.result-card .result__empty-card--hide {
+  display: none;
+}
+.result-card .result__preview-card--show {
+  display: grid;
 }/*# sourceMappingURL=style.css.map */

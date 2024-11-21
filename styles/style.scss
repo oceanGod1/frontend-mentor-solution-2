@@ -142,7 +142,12 @@ main{
   }
 
   .error-message{
+    display: none;
     color: map-get($color, error)
+  }
+
+  .show-error-message{
+    display: block;
   }
 
   .input-field__fourth-section{
@@ -219,7 +224,7 @@ main{
 
   .result__empty-card{
     @extend .grid-gap-padding;
-    gap: 2rem;
+    // gap: 2rem;
     place-items: center;
     align-self: center;
   
@@ -241,10 +246,19 @@ main{
       background-color: map-get($blended-color, dark-primay-1);
     }
 
-    h4{
-      font-size: calc(map-get($sizes, xl) + 1vw);
+    .monthly-payment{
       font-weight: bold;
+      flex-grow: 0;
+      width: 100%;
       color: map-get($color, secondary);
+      font-size: calc(map-get($sizes, xl) + 1vw);
+    }
+
+    .total-repayment{
+      @extend h2;
+      flex-grow: 0;
+      width: 100%;
+
     }
 
     hr{
@@ -252,6 +266,7 @@ main{
       margin-block: 1rem;
       border: 1px solid map-get($color, primary-2);
     }
+    display: none;
   }
 
   @include desktop-size {
@@ -260,10 +275,16 @@ main{
     // padding-inline: 1.1rem; // when showing result
     // .result.view-result{ // when showing result
     //   padding: 2rem;
-    //   h2{
+    //   .total-repayment{
     //     margin: 0;
     //   }
     // }
+  }
+  .result__empty-card--hide{
+    display: none;
+  }
+  .result__preview-card--show{
+    display: grid;
   }
 }
 
