@@ -2,6 +2,7 @@
 const pageForm = document.querySelector('form');
 const inputField = document.querySelectorAll('.input-field');
 const radioButton = document.querySelectorAll('[type="radio"]');
+const parentResultCard = document.querySelector('.result-card')
 const emptyResultCard = document.querySelector('.result__empty-card');
 const previewResultCard = document.querySelector('.result__preview-card')
 const monthlyPayment = document.querySelector('.monthly-payment');
@@ -100,32 +101,44 @@ pageForm.addEventListener('submit', (e) => {
       input.parentElement.nextElementSibling.classList.add('show-error-message');
     } else {
       filledInputFields ++
+      input.parentElement.classList.remove('fieldset--on-error');
+      input.nextElementSibling.classList.remove('input-tag--throw-error');
+      input.parentElement.nextElementSibling.classList.remove('show-error-message');
     }
   });
 
-  !resultOption ? document.querySelector('.input-field__fourth-section').lastElementChild.classList.add('show-error-message') : '';
+  !resultOption ? document.querySelector('.input-field__fourth-section').lastElementChild.classList.add('show-error-message') : document.querySelector('.input-field__fourth-section').lastElementChild.classList.remove('show-error-message');
   
+  const {mortgageAmount, mortgageTerm, mortgageRate} = userEntry;
+  const rate = mortgageRate / 12 / 100;
+  const time = mortgageTerm * 12;
+  const numerator = rate * Math.pow(1 + rate, time);
+  const denominator = Math.pow(1 + rate, time) - 1;
+  const fraction = numerator / denominator;
+  const repaymentMonthlyPay = mortgageAmount * fraction;
+  const repaymentTotalPay = repaymentMonthlyPay * time;
+  const interestMonthlyPay = mortgageAmount / time - repaymentMonthlyPay;
+  const interestTotalPay = repaymentTotalPay - mortgageAmount
+
   
-  if (filledInputFields === 3 && resultOption === 'input-field__mortgage-repayment') {
-    const {mortgageAmount, mortgageTerm, mortgageRate} = userEntry;
-    const rate = mortgageRate / 12 / 100;
-    const time = mortgageTerm * 12;
-    const numerator = rate * Math.pow(1 + rate, time);
-    const denominator = Math.pow(1 + rate, time) - 1;
-    const fraction = numerator / denominator;
-    const monthlyPay = mortgageAmount * fraction;
-    const totalPay = monthlyPay * time
-
-    monthlyPayment.value = monthlyPay.toFixed(2)
-    totalPayment.value = totalPay.toFixed(2)
-
-    numbersOnly(monthlyPayment, 'value', '\u00A3')
-    numbersOnly(totalPayment, 'value', '\u00A3')
-
+  if (filledInputFields === 3){
     emptyResultCard.classList.add('result__empty-card--hide');
     previewResultCard.classList.add('result__preview-card--show');
+    parentResultCard.classList.add('result-card--show-result');
   }
 
-  // "&pound;1,797.74"
+  if (filledInputFields === 3 && resultOption === 'input-field__mortgage-repayment') {
+    totalPayment.value = repaymentTotalPay.toFixed(2)
+    numbersOnly(totalPayment, 'value', '\u00A3')
 
+    monthlyPayment.value = repaymentMonthlyPay.toFixed(2)
+    numbersOnly(monthlyPayment, 'value', '\u00A3')
+  } else if (filledInputFields === 3 && resultOption === 'input-field__mortgage-interest') {
+
+    totalPayment.value = interestTotalPay.toFixed(2)
+    numbersOnly(totalPayment, 'value', '\u00A3')
+
+    monthlyPayment.value = interestMonthlyPay.toFixed(2)
+    numbersOnly(monthlyPayment, 'value', '\u00A3')
+  }
 })

@@ -223,6 +223,7 @@ main .card-holder {
   color: #9abed5;
 }
 .result-card .result__empty-card {
+  gap: 2rem;
   place-items: center;
   align-self: center;
 }
@@ -267,4 +268,17 @@ main .card-holder {
 }
 .result-card .result__preview-card--show {
   display: grid;
+}
+.result-card .result__preview-card--show .result {
+  padding: 2rem;
+}
+.result-card .result__preview-card--show .result .total-repayment {
+  margin: 0;
+}
+
+@media (min-width: 62rem) {
+  .result-card--show-result {
+    grid-template-rows: auto 1fr;
+    padding-inline: 1.1rem;
+  }
 }/*# sourceMappingURL=style.css.map */

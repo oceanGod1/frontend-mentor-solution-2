@@ -224,7 +224,7 @@ main{
 
   .result__empty-card{
     @extend .grid-gap-padding;
-    // gap: 2rem;
+    gap: 2rem;
     place-items: center;
     align-self: center;
   
@@ -271,26 +271,28 @@ main{
 
   @include desktop-size {
     border-end-start-radius: map-get($rounded, xl-2);
-    // grid-template-rows: auto 1fr; // when showing result
-    // padding-inline: 1.1rem; // when showing result
-    // .result.view-result{ // when showing result
-    //   padding: 2rem;
-    //   .total-repayment{
-    //     margin: 0;
-    //   }
-    // }
   }
-  .result__empty-card--hide{
+
+  .result__empty-card--hide{  // dynamically added style from js
     display: none;
   }
-  .result__preview-card--show{
+
+  .result__preview-card--show{ // dynamically added style from js
     display: grid;
+
+    .result{
+      padding: 2rem;
+
+      .total-repayment{
+        margin: 0;
+      }
+    }
   }
 }
 
-
-
-
-
-
-
+.result-card--show-result{ // when showing result
+  @include desktop-size {
+    grid-template-rows: auto 1fr;
+    padding-inline: 1.1rem;
+  }
+}
