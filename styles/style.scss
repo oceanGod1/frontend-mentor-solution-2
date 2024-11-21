@@ -96,7 +96,6 @@ main{
     }
 
     .input-tag--throw-error{ // Dynamic (JavaScript) Class
-      font-weight: bold;
       color: map-get($color, neutral-1);
       background-color: map-get($color, error);
     }

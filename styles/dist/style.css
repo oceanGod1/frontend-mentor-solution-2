@@ -1,12 +1,4 @@
-@font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("../../assets/fonts/static/PlusJakartaSans-Medium.ttf");
-}
-@font-face {
-  font-family: "Plus Jakarta Sans";
-  src: url("../../assets/fonts/static/PlusJakartaSans-Bold.ttf");
-  font-weight: bold;
-}
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;1,500&display=swap");
 .grid-gap-padding, .input-card, .result-card .result__empty-card, .result-card .result__preview-card {
   display: grid;
   gap: 1.5rem;
@@ -22,7 +14,7 @@
   box-sizing: border-box;
   background-color: transparent;
   font-size: 1rem;
-  font-family: calibri;
+  font-family: "Plus Jakarta Sans", calibri;
   color: #4e6e7e;
 }
 
@@ -116,7 +108,6 @@ main .card-holder {
   background-color: #d7da2f;
 }
 .input-card fieldset .input-tag--throw-error {
-  font-weight: bold;
   color: white;
   background-color: #d73328;
 }

@@ -12,7 +12,7 @@ let resultOption;
 
 // enable navigation for all input fields using the up and down arrow keys
 document.addEventListener('keydown', (e) => {
-  const inputField = document.querySelectorAll('input');
+  const inputField = document.querySelectorAll('form input');
   const currentIndex = Array.from(inputField).findIndex(input => document.activeElement === input)
   if (e.key === 'ArrowDown' && currentIndex < inputField.length -1) {
       inputField[currentIndex + 1].focus();
@@ -57,35 +57,50 @@ const checkRadio = {
     element.parentElement[sibling].classList.remove('radio--on-checked');
   },
 
-  radioCheckLogic: function(element, sibling, event, className, target, key, type) {
-    if (event[type] === 'keydown') {
+  radioCheckLogic: function(element, sibling, event, key, className) {
+    if (event['type'] === 'keydown') {
       event.preventDefault()
     }
-    if(element.classList.contains(className)) {
-      if (event[target] === element) {
-        this.toggle(element, sibling)
-      } else if (event[key] === 'Enter') {
-        this.toggle(element, sibling)
-      }
+    if(event[key] === 'Enter' && element.classList.contains(className)) {
+      this.toggle(element, sibling)
+      document.activeElement === document.querySelector('button')
+    }  else if (event['type'] === 'click' && element.classList.contains(className)) {
+      this.toggle(element, sibling)
     }
   },
 
   radioEvent: function(elName, eventType, sibling1, sibling2, className1, className2,){
     elName.addEventListener(eventType, (e) => {
-      this.radioCheckLogic(elName, sibling1, e, className1, 'target', 'key', 'type')
-      this.radioCheckLogic(elName, sibling2, e, className2, 'target', 'key','type')
+      this.radioCheckLogic(elName, sibling1, e, 'key', className1)
+      this.radioCheckLogic(elName, sibling2, e, 'key', className2)
       resultOption = elName.value;
     })
-  }
-}
+  },
+};
 
 // applying radio button events
 radioButton.forEach((radio) => {
-  toggleFocus(radio, 'focus', 'add', 'radio--on-focus')
-  toggleFocus(radio, 'blur', 'remove', 'radio--on-focus')
-  checkRadio.radioEvent(radio, 'keydown', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio')
-  checkRadio.radioEvent(radio, 'click', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio')
+  toggleFocus(radio, 'focus', 'add', 'radio--on-focus');
+  toggleFocus(radio, 'blur', 'remove', 'radio--on-focus');
+  checkRadio.radioEvent(radio, 'keydown', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio');
+  checkRadio.radioEvent(radio, 'click', 'nextElementSibling', 'previousElementSibling', 'repayment-radio', 'interest-only-radio');
+
+  function a (className, sibling){
+    if (radio.classList.contains(className)) {
+      radio.parentElement.classList.add('radio--on-checked');
+      radio.parentElement[sibling].classList.remove('radio--on-checked');
+    }
+  }
+
+  radio.parentElement.addEventListener('click', () => {
+    radio.checked = true;
+    a('repayment-radio', 'nextElementSibling')
+    a('interest-only-radio', 'previousElementSibling')
+  })
 })
+
+
+
 
 // submit button
 pageForm.addEventListener('submit', (e) => {
