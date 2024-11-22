@@ -48,7 +48,7 @@ main .card-holder {
 
 .input-card h1 {
   color: #122f3f;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.5rem;
   margin-block: 1rem;
   margin-bottom: 0.5rem;
@@ -92,7 +92,7 @@ main .card-holder {
   place-items: center;
   height: 2.5rem;
   border-radius: 0.3rem;
-  border: 2px solid #6b94a8;
+  border: 1px solid #6b94a8;
 }
 .input-card fieldset:hover {
   border-color: #122f3f;
@@ -103,7 +103,7 @@ main .card-holder {
   background-color: #e3f3fd;
 }
 .input-card fieldset .input-tag--on-focus {
-  font-weight: bold;
+  font-weight: 700;
   color: #122f3f;
   background-color: #d7da2f;
 }
@@ -140,7 +140,7 @@ main .card-holder {
   outline: 0.25rem solid #d7da2f;
 }
 .input-card fieldset .radio-label {
-  font-weight: bold;
+  font-weight: 700;
   color: #122f3f;
 }
 .input-card .mortgage-amount-fieldset {
@@ -168,7 +168,7 @@ main .card-holder {
   border-color: #d73328;
 }
 .input-card button {
-  font-weight: bold;
+  font-weight: 700;
   height: 2.5rem;
   color: #122f3f;
   border-radius: 2.5rem;
@@ -206,7 +206,7 @@ main .card-holder {
 }
 .result-card h2, .result-card .result__preview-card .total-repayment {
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.5rem;
   margin-block: 1rem;
 }
@@ -234,7 +234,7 @@ main .card-holder {
   background-color: #0c202b;
 }
 .result-card .result__preview-card .monthly-payment {
-  font-weight: bold;
+  font-weight: 700;
   flex-grow: 0;
   width: 100%;
   color: #d7da2f;

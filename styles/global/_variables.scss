@@ -38,7 +38,7 @@ $gap: (
 
 @mixin primary-heading($color) {
   color: $color;
-  font-weight: bold;
+  font-weight: 700;
   font-size: map-get($sizes, md);
   margin-block: map-get($sizes, sm);
   @content;
