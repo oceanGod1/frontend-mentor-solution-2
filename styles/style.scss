@@ -257,20 +257,6 @@ main {
       width: 100%;
       color: map-get($color, secondary);
       font-size: calc(map-get($sizes, xl) + 1vw);
-
-      &:disabled {
-        color: map-get($color, secondary);
-      }
-    }
-
-    .total-repayment {
-      @extend h2;
-      flex-grow: 0;
-      width: 100%;
-
-      &:disabled {
-        color: get-map($color, neutral-1);
-      }
     }
 
     hr {

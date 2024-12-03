@@ -153,15 +153,18 @@ main .card-holder {
 .input-card .show-error-message {
   display: block;
 }
-.input-card .input-field__fourth-section .radio--on-focus, .input-card .input-field__fourth-section fieldset:hover {
+.input-card .input-field__fourth-section .radio--on-focus,
+.input-card .input-field__fourth-section fieldset:hover {
   cursor: pointer;
   border-color: #e7e982;
 }
-.input-card .input-field__fourth-section .radio--on-checked, .input-card .input-field__fourth-section .radio--on-checked:hover {
+.input-card .input-field__fourth-section .radio--on-checked,
+.input-card .input-field__fourth-section .radio--on-checked:hover {
   border-color: #d7da2f;
   background-color: #f9f9e0;
 }
-.input-card .fieldset--on-focus, .input-card .fieldset--on-focus:hover {
+.input-card .fieldset--on-focus,
+.input-card .fieldset--on-focus:hover {
   border-color: #d7da2f;
 }
 .input-card .fieldset--on-error {
@@ -204,7 +207,7 @@ main .card-holder {
   display: grid;
   background-color: #122f3f;
 }
-.result-card h2, .result-card .result__preview-card .total-repayment {
+.result-card h2 {
   color: white;
   font-weight: 700;
   font-size: 1.5rem;
@@ -218,7 +221,8 @@ main .card-holder {
   place-items: center;
   align-self: center;
 }
-.result-card .result__empty-card h2, .result-card .result__empty-card .result__preview-card .total-repayment, .result-card .result__preview-card .result__empty-card .total-repayment, .result-card .result__empty-card p {
+.result-card .result__empty-card h2,
+.result-card .result__empty-card p {
   text-align: center;
 }
 .result-card .result__preview-card {
@@ -239,10 +243,6 @@ main .card-holder {
   width: 100%;
   color: #d7da2f;
   font-size: calc(2.5rem + 1vw);
-}
-.result-card .result__preview-card .total-repayment {
-  flex-grow: 0;
-  width: 100%;
 }
 .result-card .result__preview-card hr {
   align-self: center;
