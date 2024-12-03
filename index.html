@@ -1,101 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="an efficient mortgage repayment calculator"
+    />
+    <meta name="author" content="Kingsley Jack Festus" />
+    <link rel="stylesheet" href="styles/dist/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="an efficient mortgage repayment calculator">
-  <meta name="author" content="Kingsley Jack Festus">
-  <link rel="stylesheet" href="styles/dist/style.css">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  <title>Frontend Mentor | Mortgage repayment calculator</title>
-</head>
-
-<body>
-  <main>
-    <section class="card-holder">
-
-      <section class="input-card">
-        <header class="main-header">
-          <h1>Mortgage Calculator</h1>
-          <a class="clear-all" href="index.html">Clear All</a>
-        </header>
-      
-        <form>
-
-          <div class="input-field__container">
-            <label for="input-field__mortgage-amount">Mortgage Amount</label>
-            <fieldset class="mortgage-amount-fieldset">
-              <input type="text" id="input-field__mortgage-amount" name="mortgageAmount" class="input-field">
-              <label for="input-field__mortgage-amount" class="input-tag">&pound</label>
-            </fieldset>
-            <p class="error-message">This field is required</p>
-          </div>
-
-          <div class="input-field__container">
-            <label for="input-field__mortgage-term">Mortgage Term</label>
-            <fieldset>
-              <input type="text" id="input-field__mortgage-term" maxlength="5" name="mortgageTerm" class="input-field">
-              <label for="input-field__mortgage-term" class="input-tag">years</label>
-            </fieldset>
-            <p class="error-message">This field is required</p>
-          </div>
-
-          <div class="input-field__container">
-            <label for="input-field__interest-rate">Interest Rate</label>
-            <fieldset>
-              <input type="text" id="input-field__interest-rate" name="mortgageRate" class="input-field">
-              <label for="input-field__interest-rate" class="input-tag">%</label>
-            </fieldset>
-            <p class="error-message">This field is required</p>
-          </div>
-
-          <div class="input-field__container input-field__fourth-section">
-            <label>Mortgage Type</label>
-            <fieldset class="repayment-radio__container">
-              <input type="radio" name="mortgage-type" id="input-field__mortgage-repayment" value="input-field__mortgage-repayment" class="repayment-radio">
-              <label class="radio-label" for="input-field__mortgage-repayment">Repayment</label>
-            </fieldset>
-            <fieldset class="interest-radio__container">
-              <input type="radio" name="mortgage-type" id="input-field__mortgage-interest" value="input-field__mortgage-interest" class="interest-only-radio">
-              <label class="radio-label" for="input-field__mortgage-interest">Interest Only</label>
-            </fieldset>
-            <p class="error-message">This field is required</p>
-          </div>
-
-          <button><img src="assets/images/icon-calculator.svg" alt="calculator-icon">Calculate Repayments</button>
-        </form>
-      </section>
-
-      <section class="result-card">
-
-        <div class="result__empty-card">
-          <img src="assets/images/illustration-empty.svg" alt="calculator-icon">
-          <header>
-            <h2>Results shown here</h2>
-            <p>Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
+  <body>
+    <main>
+      <section class="card-holder">
+        <section class="input-card">
+          <header class="main-header">
+            <h1>Mortgage Calculator</h1>
+            <a class="clear-all" href="index.html">Clear All</a>
           </header>
-        </div>
 
-        <div class="result__preview-card">
-          <header>
-            <h2>Your results</h2>
-            <p>Your results are shown below based on the information you provided. To adjust the results, edit the form and click “calculate repayments” again.</p>
-          </header>
-          <div class="result">
-            <p>Your monthly repayments</p>
-            <input type="text" class="monthly-payment" disabled>
-            <hr>
-            <p>Total you'll repay over the term</p>
-            <input type="text" class="total-repayment" disabled>
+          <form>
+            <div class="input-field__container">
+              <label for="input-field__mortgage-amount">Mortgage Amount</label>
+              <fieldset class="mortgage-amount-fieldset">
+                <input
+                  type="text"
+                  id="input-field__mortgage-amount"
+                  name="mortgageAmount"
+                  class="input-field"
+                />
+                <label for="input-field__mortgage-amount" class="input-tag"
+                  >&pound</label
+                >
+              </fieldset>
+              <p class="error-message">This field is required</p>
+            </div>
+
+            <div class="input-field__container">
+              <label for="input-field__mortgage-term">Mortgage Term</label>
+              <fieldset>
+                <input
+                  type="text"
+                  id="input-field__mortgage-term"
+                  maxlength="5"
+                  name="mortgageTerm"
+                  class="input-field"
+                />
+                <label for="input-field__mortgage-term" class="input-tag"
+                  >years</label
+                >
+              </fieldset>
+              <p class="error-message">This field is required</p>
+            </div>
+
+            <div class="input-field__container">
+              <label for="input-field__interest-rate">Interest Rate</label>
+              <fieldset>
+                <input
+                  type="text"
+                  id="input-field__interest-rate"
+                  name="mortgageRate"
+                  class="input-field"
+                />
+                <label for="input-field__interest-rate" class="input-tag"
+                  >%</label
+                >
+              </fieldset>
+              <p class="error-message">This field is required</p>
+            </div>
+
+            <div class="input-field__container input-field__fourth-section">
+              <label>Mortgage Type</label>
+              <fieldset class="repayment-radio__container">
+                <input
+                  type="radio"
+                  name="mortgage-type"
+                  id="input-field__mortgage-repayment"
+                  value="input-field__mortgage-repayment"
+                  class="repayment-radio"
+                />
+                <label class="radio-label" for="input-field__mortgage-repayment"
+                  >Repayment</label
+                >
+              </fieldset>
+              <fieldset class="interest-radio__container">
+                <input
+                  type="radio"
+                  name="mortgage-type"
+                  id="input-field__mortgage-interest"
+                  value="input-field__mortgage-interest"
+                  class="interest-only-radio"
+                />
+                <label class="radio-label" for="input-field__mortgage-interest"
+                  >Interest Only</label
+                >
+              </fieldset>
+              <p class="error-message">This field is required</p>
+            </div>
+
+            <button>
+              <img
+                src="assets/images/icon-calculator.svg"
+                alt="calculator-icon"
+              />Calculate Repayments
+            </button>
+          </form>
+        </section>
+
+        <section class="result-card">
+          <div class="result__empty-card">
+            <img
+              src="assets/images/illustration-empty.svg"
+              alt="calculator-icon"
+            />
+            <header>
+              <h2>Results shown here</h2>
+              <p>
+                Complete the form and click “calculate repayments” to see what
+                your monthly repayments would be.
+              </p>
+            </header>
           </div>
-        </div>
- 
+
+          <div class="result__preview-card">
+            <header>
+              <h2>Your results</h2>
+              <p>
+                Your results are shown below based on the information you
+                provided. To adjust the results, edit the form and click
+                “calculate repayments” again.
+              </p>
+            </header>
+            <div class="result">
+              <p>Your monthly repayments</p>
+              <input type="text" class="monthly-payment" />
+              <hr />
+              <p>Total you'll repay over the term</p>
+              <input type="text" class="total-repayment" disabled />
+            </div>
+          </div>
+        </section>
       </section>
-
-    </section>
-  </main>
-  <script src="scripts/app.js"></script>
-</body>
-
+    </main>
+    <script src="scripts/app.js"></script>
+  </body>
 </html>
