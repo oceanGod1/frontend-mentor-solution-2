@@ -1,20 +1,20 @@
 @use "global" as *;
 
-main{
+main {
   min-width: 24rem;
-  
+
   @include tab-size {
     display: grid;
     height: 100vh;
     place-content: center;
     background-color: map-get($color, primary-5);
   }
-  
-  .card-holder{
+
+  .card-holder {
     display: grid;
     background-color: map-get($color, neutral-1);
     grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
-    
+
     @include tab-size {
       grid-template-columns: repeat(2, minmax(24rem, 31rem));
     }
@@ -26,43 +26,43 @@ main{
   }
 }
 
-.input-card{
+.input-card {
   @extend .grid-gap-padding;
 
-  h1{
+  h1 {
     @include primary-heading(map-get($color, primary-1));
     margin-bottom: map-get($sizes, xs);
   }
 
-  .clear-all:hover{
-    color: map-get($color, primary-1)
+  .clear-all:hover {
+    color: map-get($color, primary-1);
   }
 
-  form{
+  form {
     @include grid-gap(gap-2);
 
     @include desktop-size {
       grid-template-columns: repeat(4, 1fr);
 
-      button{
+      button {
         grid-column: span 3;
       }
     }
 
-    .input-field__container{
+    .input-field__container {
       @include grid-gap(gap-1);
 
       @include desktop-size {
         grid-column: span 4;
 
         &:nth-of-type(2),
-        &:nth-of-type(3){
+        &:nth-of-type(3) {
           grid-column: span 2;
 
-          fieldset{
+          fieldset {
             min-width: 1rem;
 
-            input{
+            input {
               min-width: 1rem;
             }
           }
@@ -71,7 +71,7 @@ main{
     }
   }
 
-  fieldset{
+  fieldset {
     display: flex;
     overflow: hidden;
     place-items: center;
@@ -79,40 +79,42 @@ main{
     border-radius: map-get($rounded, sm);
     border: 1px solid map-get($color, primary-3);
 
-    &:hover{
+    &:hover {
       border-color: map-get($color, primary-1);
     }
 
-    .input-tag{
+    .input-tag {
       cursor: pointer;
       padding: map-get($sizes, sm);
       background-color: map-get($color, primary-5);
     }
 
-    .input-tag--on-focus{ // Dynamic (JavaScript) Class
+    .input-tag--on-focus {
+      // Dynamic (JavaScript) Class
       font-weight: 700;
       color: map-get($color, primary-1);
       background-color: map-get($color, secondary);
     }
 
-    .input-tag--throw-error{ // Dynamic (JavaScript) Class
+    .input-tag--throw-error {
+      // Dynamic (JavaScript) Class
       color: map-get($color, neutral-1);
       background-color: map-get($color, error);
     }
 
-    input{
+    input {
       flex: 1;
       height: 100%;
       font-weight: 700;
       color: map-get($color, primary-1);
       padding-left: map-get($sizes, sm);
 
-      &:hover{
+      &:hover {
         cursor: pointer;
       }
     }
-    
-    [type="radio"]{
+
+    [type="radio"] {
       height: 1rem;
       flex-grow: 0;
       appearance: none;
@@ -124,118 +126,122 @@ main{
       border: 0.25rem solid map-get($color, neutral-1);
       outline: 0.25rem solid map-get($color, primary-1);
     }
-    
-    [type="radio"]:checked{
+
+    [type="radio"]:checked {
       background-color: map-get($color, secondary);
       outline: 0.25rem solid map-get($color, secondary);
     }
-    
-    .radio-label{
+
+    .radio-label {
       font-weight: 700;
       color: map-get($color, primary-1);
     }
   }
 
-  .mortgage-amount-fieldset{
+  .mortgage-amount-fieldset {
     flex-direction: row-reverse;
   }
 
-  .error-message{
+  .error-message {
     display: none;
-    color: map-get($color, error)
+    color: map-get($color, error);
   }
 
-  .show-error-message{
+  .show-error-message {
     display: block;
   }
 
-  .input-field__fourth-section{
-    .radio--on-focus, fieldset:hover{
+  .input-field__fourth-section {
+    .radio--on-focus,
+    fieldset:hover {
       cursor: pointer;
       border-color: map-get($blended-color, light-secondary-1);
     }
-    .radio--on-checked, .radio--on-checked:hover{ // Dynamic (JavaScript) Class
+    .radio--on-checked,
+    .radio--on-checked:hover {
+      // Dynamic (JavaScript) Class
       border-color: map-get($color, secondary);
       background-color: map-get($blended-color, light-secondary-2);
     }
   }
 
-  .fieldset--on-focus, .fieldset--on-focus:hover{ // Dynamic (JavaScript) Class
+  .fieldset--on-focus,
+  .fieldset--on-focus:hover {
+    // Dynamic (JavaScript) Class
     border-color: map-get($color, secondary);
   }
 
-  .fieldset--on-error { // Dynamic (JavaScript) Class
+  .fieldset--on-error {
+    // Dynamic (JavaScript) Class
     border-color: map-get($color, error);
   }
 
-  button{
+  button {
     font-weight: 700;
     height: map-get($sizes, xl);
     color: map-get($color, primary-1);
     border-radius: map-get($rounded, xl);
     background-color: map-get($color, secondary);
-    
-    img{
+
+    img {
       height: 1.2rem;
       vertical-align: bottom;
       padding-right: map-get($sizes, sm);
     }
 
-    &:hover{
+    &:hover {
       cursor: pointer;
       background-color: map-get($blended-color, light-secondary-1);
     }
 
-    &:active{
+    &:active {
       background-color: map-get($color, secondary);
     }
   }
 
   @include desktop-size {
     padding: map-get($sizes, xl);
-    
-    .main-header{
+
+    .main-header {
       display: flex;
       align-items: baseline;
       justify-content: space-between;
 
-      h1{
+      h1 {
         margin: 0;
       }
     }
   }
 }
 
-
-
-
-.result-card{
+.result-card {
   display: grid;
   background-color: map-get($color, primary-1);
-  
-  h2{
+
+  h2 {
     @include primary-heading(map-get($color, neutral-1));
   }
 
-  p{
+  p {
     color: map-get($color, primary-4);
   }
 
-  .result__empty-card{
+  .result__empty-card {
     @extend .grid-gap-padding;
     gap: 2rem;
     place-items: center;
     align-self: center;
-  
-    h2,p{
+
+    h2,
+    p {
       text-align: center;
     }
   }
 
-  .result__preview-card{
+  .result__preview-card {
     @extend .grid-gap-padding;
 
-    .result{
+    .result {
       @include grid-gap(gap-1);
 
       display: grid;
@@ -245,22 +251,29 @@ main{
       background-color: map-get($blended-color, dark-primay-1);
     }
 
-    .monthly-payment{
+    .monthly-payment {
       font-weight: 700;
       flex-grow: 0;
       width: 100%;
       color: map-get($color, secondary);
       font-size: calc(map-get($sizes, xl) + 1vw);
+
+      &:disabled {
+        color: map-get($color, secondary);
+      }
     }
 
-    .total-repayment{
+    .total-repayment {
       @extend h2;
       flex-grow: 0;
       width: 100%;
 
+      &:disabled {
+        color: get-map($color, neutral-1);
+      }
     }
 
-    hr{
+    hr {
       align-self: center;
       margin-block: 1rem;
       border: 1px solid map-get($color, primary-2);
@@ -272,24 +285,27 @@ main{
     border-end-start-radius: map-get($rounded, xl-2);
   }
 
-  .result__empty-card--hide{  // dynamically added style from js
+  .result__empty-card--hide {
+    // dynamically added style from js
     display: none;
   }
 
-  .result__preview-card--show{ // dynamically added style from js
+  .result__preview-card--show {
+    // dynamically added style from js
     display: grid;
 
-    .result{
+    .result {
       padding: 2rem;
 
-      .total-repayment{
+      .total-repayment {
         margin: 0;
       }
     }
   }
 }
 
-.result-card--show-result{ // when showing result
+.result-card--show-result {
+  // when showing result
   @include desktop-size {
     grid-template-rows: auto 1fr;
     padding-inline: 1.1rem;
